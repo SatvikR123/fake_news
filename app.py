@@ -9,7 +9,11 @@ from nltk.stem.porter import PorterStemmer
 from tensorflow.keras.preprocessing.text import one_hot
 import pandas as pd
 import nltk
-nltk.download('stopwords')
+try:
+    nltk.data.find('corpora/stopwords')
+except LookupError:
+    nltk.download('stopwords')
+
 
 # Load the trained model
 model = load_model("fake_news_model.h5")
