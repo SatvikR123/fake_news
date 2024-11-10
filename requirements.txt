@@ -4,3 +4,4 @@ tensorflow
 nltk
 pandas
 requests
+stopwords
