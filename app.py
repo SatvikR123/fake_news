@@ -8,6 +8,8 @@ from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 from tensorflow.keras.preprocessing.text import one_hot
 import pandas as pd
+import nltk
+nltk.download('stopwords')
 
 # Load the trained model
 model = load_model("fake_news_model.h5")
