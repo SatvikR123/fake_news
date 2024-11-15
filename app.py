@@ -4,11 +4,12 @@ import re
 import requests
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.sequence import pad_sequences
+import nltk
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 from tensorflow.keras.preprocessing.text import one_hot
+from tensorflow.keras.optimizers import Adam
 import pandas as pd
-import nltk
 try:
     nltk.data.find('corpora/stopwords')
 except LookupError:
@@ -18,6 +19,12 @@ import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'  
 # Load the trained model
 model = load_model("fake_news_model.h5")
+
+# Load model without compiling
+model = load_model("fake_news_model.h5", compile=False)
+
+# Recompile model with updated optimizer
+model.compile(optimizer=Adam(learning_rate=0.001), loss='binary_crossentropy', metrics=['accuracy'])
 
 # Constants
 voc_size = 5000
