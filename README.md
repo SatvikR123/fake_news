@@ -18,3 +18,6 @@ This is a Streamlit-based Fake News Detection tool that uses a trained RNN (LSTM
    ```bash
    streamlit run app.py
 
+## How to use the API news fetch
+Firsly you need to create your own news api key from newsapi.org
+then just use it in the streamlit app
