@@ -17,8 +17,6 @@ except LookupError:
 
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'  
-# Load the trained model
-model = load_model("fake_news_model.h5")
 
 # Load model without compiling
 model = load_model("fake_news_model.h5", compile=False)
